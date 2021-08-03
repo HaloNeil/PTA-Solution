@@ -1,0 +1,42 @@
+/*
+一、题目要求
+本题要求编写程序，顺序读入浮点数1、整数、字符、浮点数2，再按照字符、整数、浮点数1、浮点数2的顺序输出。
+
+输入格式：
+输入在一行中顺序给出浮点数1、整数、字符、浮点数2，其间以1个空格分隔。
+
+输出格式：
+在一行中按照字符、整数、浮点数1、浮点数2的顺序输出，其中浮点数保留小数点后2位。
+
+输入样例：
+2.12 88 c 4.7
+
+输出样例：
+c 88 2.12 4.70
+*/
+
+//方法一：缺点在于使用 DecimalFormat型 不简洁
+// 		 其次 c = sc.next().charAt(0); 一次只能输入一个字符，不利于实际需求	 
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		float f1, f2;
+		int i;
+		char c;
+        DecimalFormat df = new DecimalFormat("###.00");
+
+		Scanner sc = new Scanner(System.in);
+		f1 = sc.nextFloat();
+		i = sc.nextInt();
+		c = sc.next().charAt(0);//Scanner input = new Scanner(System.in); String c = input.nextLine(); 通过该方法达成一次输入多个字符
+		f2 = sc.nextFloat();
+
+		System.out.println(c + " " + i + " " + df.format(f1) + " " + df.format(f2));
+
+	}
+
+}
